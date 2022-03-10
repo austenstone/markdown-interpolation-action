@@ -6,10 +6,9 @@ branding:
   color: "blue"
 
 inputs:
-  github-token:
-    description: The GitHub token used to create an authenticated client
-    default: ${{ github.token }}
-    required: false
+  values:
+    description: The values as JSON.
+    required: true
 
 runs:
   using: "node16"
