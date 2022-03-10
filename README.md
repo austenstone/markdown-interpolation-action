@@ -1,5 +1,7 @@
 # TypeScript Action Template
 
+<!--TIME--><!--END TIME-->
+
 This GitHub [action](https://docs.github.com/en/actions) serves as a template for TypeScript actions.
 
 ## Usage

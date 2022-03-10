@@ -1,21 +1,11 @@
 import * as core from '@actions/core';
-import * as github from '@actions/github';
+import { markdownInterpolateFileWrite } from 'markdown-interpolation';
 
 const run = async (): Promise<void> => {
-  const token = core.getInput('github-token');
-  if (!token) return core.setFailed('No input \'github-token\'');
-
-  const octokit = github.getOctokit(token);
-
-  const {
-    viewer: { login },
-  } = await octokit.graphql(`{ 
-    viewer { 
-      login
-    }
-  }`);
-
-  core.info(`Hello, ${login}`);
+  const values = core.getInput('values');
+  if (!values) return core.setFailed('No input \'values\'');
+  core.info(JSON.stringify({ values }, null, 2));
+  markdownInterpolateFileWrite('README.md', values);
 };
 
 export default run;

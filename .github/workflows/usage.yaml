@@ -10,4 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/github-script@v6
+        id: values
+        with:
+          script: |
+            return {
+              TIME: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', timeZone: 'America/New_York' })
+            }
       - uses: ./
+        with:
+          values: ${{steps.values.outputs.result}}

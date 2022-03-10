@@ -26,7 +26,8 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.0"
+    "@actions/github": "^5.0.0",
+    "markdown-interpolation": "^1.1.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
