@@ -17,7 +17,6 @@ jobs:
             return {
               TIME: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', timeZone: 'America/New_York' })
             }
-          result-encoding: string
       - uses: ./
         with:
           values: ${{steps.values.outputs.result}}
