@@ -4,7 +4,7 @@ import * as path from 'path';
 import { test } from '@jest/globals';
 
 test('test run', () => {
-  process.env['INPUT_GITHUB-TOKEN'] = process.env.GITHUB_TOKEN;
+  process.env['INPUT_VALUES'] = '{"TIME":"6:12 PM"}';
   const np = process.execPath;
   const ip = path.join(__dirname, '..', 'lib', 'main.js');
   const options: cp.ExecFileSyncOptions = {

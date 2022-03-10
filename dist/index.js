@@ -56,7 +56,7 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
     const valuesInput = core.getInput('values');
     if (!valuesInput)
         return core.setFailed('No input \'values\'');
-    core.info(JSON.stringify({ values: valuesInput }, null, 2));
+    core.info(JSON.stringify(valuesInput, null, 2));
     let values;
     try {
         values = JSON.parse(valuesInput);
