@@ -53,11 +53,18 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const markdown_interpolation_1 = __nccwpck_require__(312);
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
-    const values = core.getInput('values');
-    if (!values)
+    const valuesInput = core.getInput('values');
+    if (!valuesInput)
         return core.setFailed('No input \'values\'');
-    core.info(JSON.stringify({ values }, null, 2));
-    (0, markdown_interpolation_1.markdownInterpolateFileWrite)('README.md', values);
+    core.info(JSON.stringify({ values: valuesInput }, null, 2));
+    let values;
+    try {
+        values = JSON.parse(valuesInput);
+    }
+    catch (_a) {
+        return core.error(`Failed to parse JSON ${valuesInput}`);
+    }
+    return (0, markdown_interpolation_1.markdownInterpolateFileWrite)('README.md', values);
 });
 exports["default"] = run;
 
