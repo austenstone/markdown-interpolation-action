@@ -1,4 +1,4 @@
-name: TypeScript Action Workflow
+name: Write Time to README.md
 on:
   push:
   pull_request:
