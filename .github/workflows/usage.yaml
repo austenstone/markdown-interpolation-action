@@ -1,8 +1,5 @@
 name: Write Time to README.md
 on:
-  push:
-  pull_request:
-  workflow_dispatch:
   schedule:
     - cron: '* * * * *'
 
