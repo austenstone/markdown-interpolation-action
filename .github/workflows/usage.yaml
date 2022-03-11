@@ -1,5 +1,6 @@
 name: Write Time to README.md
 on:
+  workflow_run:
   schedule:
     - cron: '* * * * *'
 
