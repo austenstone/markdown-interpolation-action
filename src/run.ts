@@ -8,7 +8,10 @@ const run = async (): Promise<void> => {
   if (!valuesInput) return core.setFailed('No input \'values\'');
   try {
     const values = JSON.parse(valuesInput);
-    return markdownInterpolateWriteFileRegex(new RegExp(filesRegex, filesRegexFlags), values);
+    const regex = new RegExp(filesRegex, filesRegexFlags);
+    const sanitizedValues = Object.fromEntries(Object.entries(values).filter(([_, v]) => v != null));
+    core.info(`${regex.source} ${JSON.stringify(sanitizedValues, null, 2)}`);
+    return markdownInterpolateWriteFileRegex(regex, sanitizedValues);
   } catch {
     return core.error(`Failed to parse JSON ${valuesInput}`);
   }
