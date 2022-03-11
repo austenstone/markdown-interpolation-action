@@ -43,8 +43,7 @@ Last updated: <!--TIME-->3/11/2022, 1:55:13 PM<!--END TIME--> (EST) by @<!--AUTH
 ### Example 1 Result (LIVE)
 Last updated: <!--TIME-->3/11/2022, 1:55:13 PM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 
-### Example Message
-##### <!--MESSAGE--><!--END MESSAGE-->
+### <!--MESSAGE--><!--END MESSAGE-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
