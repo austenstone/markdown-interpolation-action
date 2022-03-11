@@ -32,7 +32,7 @@ jobs:
             }
       - uses: austenstone/markdown-interpolation-action@main
         with:
-          values: ${{steps.values.outputs.result}}
+          values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
 ```
 ### Example 1 README
