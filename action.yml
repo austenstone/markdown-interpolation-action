@@ -6,6 +6,14 @@ branding:
   color: "blue"
 
 inputs:
+  files-regex:
+    description: Names of files to modify regex match.
+    default: README.md
+    required: false
+  files-regex-flags:
+    description: Regex flags for files-regex match.
+    default: 'gi'
+    required: false
   values:
     description: The values as JSON.
     required: true

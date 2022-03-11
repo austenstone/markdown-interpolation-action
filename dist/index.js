@@ -54,17 +54,17 @@ const core = __importStar(__nccwpck_require__(186));
 const markdown_interpolation_1 = __nccwpck_require__(3);
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
     const valuesInput = core.getInput('values');
+    const filesRegex = core.getInput('files-regex');
+    const filesRegexFlags = core.getInput('files-regex-flags');
     if (!valuesInput)
         return core.setFailed('No input \'values\'');
-    core.info(valuesInput);
-    let values;
     try {
-        values = JSON.parse(valuesInput);
+        const values = JSON.parse(valuesInput);
+        return (0, markdown_interpolation_1.markdownInterpolateWriteFileRegex)(new RegExp(filesRegex, filesRegexFlags), values);
     }
     catch (_a) {
         return core.error(`Failed to parse JSON ${valuesInput}`);
     }
-    return (0, markdown_interpolation_1.markdownInterpolateFileWrite)('README.md', values);
 });
 exports["default"] = run;
 
