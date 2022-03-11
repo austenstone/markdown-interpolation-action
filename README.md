@@ -1,9 +1,11 @@
-# TypeScript Action Template
+# Markdown Interpolation Action
+
+This action interpolates markdown with variables variables.
+
+See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolation#writing) to understand how to use the interpolation syntax.
 
 ## Usage
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
-
-See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolation#writing) to understand how to use the interpolation syntax.
 
 #### Example 1 Workflow
 ```yml
@@ -21,7 +23,7 @@ jobs:
       - uses: actions/github-script@v6
         id: values
         env:
-          AUTHOR: ${{ github.actor	}}
+          AUTHOR: ${{ github.actor }}
         with:
           script: |
             return {
