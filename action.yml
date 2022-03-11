@@ -2,8 +2,8 @@ name: Markdown Interpolation Action
 author: Austen Stone
 description: Interpolate markdown files with variables
 branding:
-  icon: "plus"
-  color: "blue"
+  icon: "file-text"
+  color: "orange"
 
 inputs:
   files-regex:
