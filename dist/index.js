@@ -60,7 +60,10 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         return core.setFailed('No input \'values\'');
     try {
         const values = JSON.parse(valuesInput);
-        return (0, markdown_interpolation_1.markdownInterpolateWriteFileRegex)(new RegExp(filesRegex, filesRegexFlags), values);
+        const regex = new RegExp(filesRegex, filesRegexFlags);
+        const sanitizedValues = Object.fromEntries(Object.entries(values).filter(([_, v]) => v != null));
+        core.info(`${regex.source} ${JSON.stringify(sanitizedValues, null, 2)}`);
+        return (0, markdown_interpolation_1.markdownInterpolateWriteFileRegex)(regex, sanitizedValues);
     }
     catch (_a) {
         return core.error(`Failed to parse JSON ${valuesInput}`);
