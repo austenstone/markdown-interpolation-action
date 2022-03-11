@@ -42,6 +42,7 @@ Last updated: <!--TIME-->3/10/2022, 8:29:13 PM (EST)<!--END TIME--> by <!--AUTHO
 
 ### Example 1 Result (LIVE)
 Last updated: <!--TIME-->3/10/2022, 8:29:13 PM (EST)<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
+Message: <!--MESSAGE-->Hello World!<!--MESSAGE-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
