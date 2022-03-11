@@ -1,6 +1,6 @@
 name: Markdown Interpolation Action
 author: Austen Stone
-description: Markdown Interpolation
+description: Interpolate markdown files with variables
 branding:
   icon: "plus"
   color: "blue"
