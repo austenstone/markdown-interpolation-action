@@ -44,7 +44,7 @@ Last updated: <!--TIME-->3/10/2022, 10:37:48 PM<!--END TIME--> (EST) by @<!--AUT
 Last updated: <!--TIME-->3/10/2022, 10:37:48 PM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 
 ### Example Message
-#### <!--MESSAGE-->Hello World!<!--END MESSAGE-->
+##### <!--MESSAGE-->Hello World!<!--END MESSAGE-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
