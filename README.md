@@ -7,7 +7,7 @@ See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolati
 ## Usage
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
-#### Example 1 Workflow
+#### [Example 1 Workflow](https://github.com/austenstone/markdown-interpolation-action/blob/main/.github/workflows/usage.yaml)
 ```yml
 name: Write Time to README.md
 on:
@@ -40,7 +40,7 @@ jobs:
 Last updated: <!--TIME-->3/10/2022, 8:12:07 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
 ```
 
-### Example 1 Result (Live)
+### Example 1 Result (LIVE)
 Last updated: <!--TIME-->3/10/2022, 8:12:07 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
 
 ## Input Settings
