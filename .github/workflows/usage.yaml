@@ -14,11 +14,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/github-script@v6
         id: values
+        env:
+          AUTHOR: ${{ github.actor	}}
         with:
           script: |
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
-              AUTHOR: ${{ github.actor	}},
+              AUTHOR: `@${process.env.AUTHOR}`,
             }
       - uses: ./
         with:
