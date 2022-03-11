@@ -37,11 +37,11 @@ jobs:
 ```
 ### Example 1 README
 ```md
-Last updated: <!--TIME-->3/10/2022, 7:50:54 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/10/2022, 8:12:07 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
 ```
 
 ### Example 1 Result (Live)
-Last updated: <!--TIME-->3/10/2022, 7:50:54 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/10/2022, 8:12:07 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
