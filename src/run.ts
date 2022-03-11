@@ -6,15 +6,15 @@ const run = async (): Promise<void> => {
   const filesRegex = core.getInput('files-regex');
   const filesRegexFlags = core.getInput('files-regex-flags');
   if (!valuesInput) return core.setFailed('No input \'values\'');
+  let values;
   try {
-    const values = JSON.parse(valuesInput);
-    const regex = new RegExp(filesRegex, filesRegexFlags);
-    const sanitizedValues = Object.fromEntries(Object.entries(values).filter(([_, v]) => v != null));
-    core.info(`${regex.source} ${JSON.stringify(sanitizedValues, null, 2)}`);
-    return markdownInterpolateWriteFileRegex(regex, sanitizedValues);
+    values = JSON.parse(valuesInput);
   } catch {
     return core.error(`Failed to parse JSON ${valuesInput}`);
   }
+  const regex = new RegExp(filesRegex, filesRegexFlags);
+  core.info(`${regex.source} ${JSON.stringify(values, null, 2)}`);
+  return markdownInterpolateWriteFileRegex(regex, values);
 };
 
 export default run;
