@@ -3,6 +3,8 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '* * * * *'
 
 jobs:
   run:
@@ -15,7 +17,7 @@ jobs:
         with:
           script: |
             return {
-              TIME: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', timeZone: 'America/New_York' })
+              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
             }
       - uses: ./
         with:
