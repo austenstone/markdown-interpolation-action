@@ -28,7 +28,7 @@ jobs:
           script: |
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
-              AUTHOR: `@${process.env.AUTHOR}`,
+              AUTHOR: process.env.AUTHOR
             }
       - uses: austenstone/markdown-interpolation-action@main
         with:
