@@ -1,6 +1,6 @@
 # Markdown Interpolation Action
 
-This action interpolates markdown with variables variables.
+This action interpolates markdown with variables.
 
 See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolation#writing) to understand how to use the interpolation syntax.
 
