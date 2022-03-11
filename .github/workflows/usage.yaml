@@ -1,6 +1,11 @@
 name: Write Time to README.md
 on:
   workflow_dispatch:
+    inputs:
+      message:
+        description: 'A message to show in the README.md file'     
+        required: true
+        default: 'Hello World!'
   schedule:
     - cron: '* * * * *'
 
@@ -19,6 +24,7 @@ jobs:
             return {
               TIME: `${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })} (EST)`,
               AUTHOR: `@${process.env.AUTHOR}`,
+              MESSAGE: core.getInput('message')
             }
       - uses: ./
         with:
