@@ -1,11 +1,11 @@
 # TypeScript Action Template
 
-Last updated: <!--TIME-->3/10/2022, 7:50:54 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
-
 ## Usage
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
-#### Default Workflow
+See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolation#writing) to understand how to use the interpolation syntax.
+
+#### Example 1 Workflow
 ```yml
 name: Write Time to README.md
 on:
@@ -33,12 +33,17 @@ jobs:
           values: ${{steps.values.outputs.result}}
       - uses: stefanzweifel/git-auto-commit-action@v4
 ```
+### Example 1 README
+```md
+Last updated: <!--TIME-->3/10/2022, 7:50:54 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
+```
+
+### Example 1 Result (Live)
+Last updated: <!--TIME-->3/10/2022, 7:50:54 PM<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
 
 | Name | Description | Default |
 | --- | - | - |
-| github&#x2011;token | Token to use to authorize. | ${{&nbsp;github.token&nbsp;}} |
-
-This GitHub [action](https://docs.github.com/en/actions) serves as a template for TypeScript actions.
+| **values** | JSON values to interpolate in markdown. | N/A |
