@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import { markdownInterpolateFileWrite } from 'markdown-interpolation';
 
 const run = async (): Promise<void> => {
   const valuesInput = '{"TIME":"6:20 PM"}';
