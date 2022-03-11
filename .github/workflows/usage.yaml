@@ -19,12 +19,13 @@ jobs:
         id: values
         env:
           AUTHOR: ${{ github.actor	}}
+          MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
             return {
               TIME: `${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })} (EST)`,
               AUTHOR: `@${process.env.AUTHOR}`,
-              MESSAGE: core.getInput('message')
+              MESSAGE: process.env.MESSAGE
             }
       - uses: ./
         with:
