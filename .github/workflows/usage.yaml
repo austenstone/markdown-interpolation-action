@@ -17,10 +17,10 @@ jobs:
         with:
           script: |
             return {
-              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
+              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
+              AUTHOR: ${{ github.actor	}},
             }
       - uses: ./
         with:
           values: ${{steps.values.outputs.result}}
       - uses: stefanzweifel/git-auto-commit-action@v4
-      
