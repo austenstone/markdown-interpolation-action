@@ -53,10 +53,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const markdown_interpolation_1 = __nccwpck_require__(312);
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
-    const valuesInput = core.getInput('values');
+    const valuesInput = '{"TIME":"6:20 PM"}';
     if (!valuesInput)
         return core.setFailed('No input \'values\'');
-    core.info(JSON.stringify(valuesInput, null, 2));
+    core.info(valuesInput);
     let values;
     try {
         values = JSON.parse(valuesInput);

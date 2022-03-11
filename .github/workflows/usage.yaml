@@ -6,7 +6,7 @@ on:
 
 jobs:
   run:
-    name: Run Action
+    name: Write Time
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

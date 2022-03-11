@@ -1,10 +1,10 @@
 import * as core from '@actions/core';
-import { markdownInterpolateFileWrite } from 'markdown-interpolation';
 
 const run = async (): Promise<void> => {
-  const valuesInput = core.getInput('values');
+  const valuesInput = '{"TIME":"6:20 PM"}';
+  // const valuesInput = core.getInput('values');
   if (!valuesInput) return core.setFailed('No input \'values\'');
-  core.info(JSON.stringify(valuesInput, null, 2));
+  core.info(valuesInput);
   let values;
   try {
     values = JSON.parse(valuesInput);
@@ -15,3 +15,4 @@ const run = async (): Promise<void> => {
 };
 
 export default run;
+
