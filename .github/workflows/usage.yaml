@@ -22,3 +22,5 @@ jobs:
       - uses: ./
         with:
           values: ${{steps.values.outputs.result}}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+      
