@@ -43,7 +43,7 @@ Last updated: <!--TIME-->3/10/2022, 8:34:55 PM (EST)<!--END TIME--> by <!--AUTHO
 ### Example 1 Result (LIVE)
 Last updated: <!--TIME-->3/10/2022, 8:34:55 PM (EST)<!--END TIME--> by <!--AUTHOR-->@austenstone<!--END AUTHOR-->
 
-Message: <!--MESSAGE-->Hello World!<!--MESSAGE-->
+[Message](https://github.com/austenstone/markdown-interpolation-action/actions/workflows/usage.yaml): <!--MESSAGE-->Hello World!<!--MESSAGE-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
