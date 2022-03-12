@@ -23,7 +23,7 @@ jobs:
             const examples = ['example1', 'example2', 'example3'];
             const values = {};
             examples.forEach((example) => {
-              let content = fs.readFileSync('.github/workflows/example1.yml').toString();
+              let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
               content = content.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master');
               values[example.toUpperCase()] = content;
             });
