@@ -4,7 +4,7 @@ This action interpolates markdown with variables.
 
 See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolation#writing) to understand how to use the interpolation syntax.
 
-## EXAMPLE
+## EXAMPLE 1
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
 #### [Example 1 Workflow](.github/workflows/example1.yml)
@@ -45,7 +45,8 @@ jobs:
 ### Example 1 Result (LIVE)
 ##### Last Updated: <!--TIME-->3/12/2022, 2:35:08 AM<!--END TIME-->
 
-### Example 2
+## EXAMPLE 2
+
 This example is actually updating the code examples for both examples 🤯.
 
 #### [Example 2 Workflow](.github/workflows/example2.yml)
@@ -95,8 +96,13 @@ You're looking at it.
 ### Example 2 Result (LIVE)
 yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), and [Example 3](#example-3-workflow).
 
-### Example 3
+## EXAMPLE 3
+
 An example to manually update a message on the README.md file.
+
+#### [Example 3 Workflow](.github/workflows/example2.yml)
+<!--EXAMPLE3-->
+<!--END EXAMPLE3-->
 
 ### Example 3 README
 ```md
@@ -106,15 +112,6 @@ An example to manually update a message on the README.md file.
 ### Example 3 Result (LIVE)
 @<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
 
-#### [Example 3 Workflow](.github/workflows/example2.yml)
-<!--EXAMPLE3-->
-<!--END EXAMPLE3-->
-
-### Example 2 README
-You're looking at it.
-
-### Example 2 Result (LIVE)
-yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), and [Example 3](#example-3-workflow).
 
 ## Inputs
 
