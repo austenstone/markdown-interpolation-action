@@ -11,7 +11,7 @@ on:
 
 jobs:
   run:
-    name: Write Time
+    name: Write Time to README.md
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
