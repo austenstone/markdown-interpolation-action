@@ -52,11 +52,11 @@ jobs:
 
 ### Example 1 README
 ```md
-Last updated: <!--TIME-->3/12/2022, 1:54:01 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 1:57:15 AM (EST)<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 ```
 
 ### Example 1 Result (LIVE)
-Last updated: <!--TIME-->3/12/2022, 1:54:01 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 1:57:15 AM (EST)<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 
 ### <!--MESSAGE-->Hello World!<!--END MESSAGE-->
 
