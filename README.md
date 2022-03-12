@@ -9,7 +9,8 @@ Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow fi
 
 #### [Example 1 Workflow](https://github.com/austenstone/markdown-interpolation-action/blob/main/.github/workflows/usage.yml)
 
-<!--USAGE-->```yml
+<!--USAGE-->
+```yml
 name: Write Time to README.md
 on:
   workflow_dispatch:
@@ -39,22 +40,23 @@ jobs:
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
               AUTHOR: process.env.AUTHOR,
               MESSAGE: process.env.MESSAGE,
-              USAGE: '```yml\n' + fs.readFileSync('.github/workflows/usage.yml').toString() + '\n```'
+              USAGE: '\n```yml\n' + fs.readFileSync('.github/workflows/usage.yml').toString() + '\n```\n'
             }
       - uses: ./
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
 
-```<!--END USAGE-->
+```
+<!--END USAGE-->
 
 ### Example 1 README
 ```md
-Last updated: <!--TIME-->3/12/2022, 1:51:44 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 1:54:01 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 ```
 
 ### Example 1 Result (LIVE)
-Last updated: <!--TIME-->3/12/2022, 1:51:44 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 1:54:01 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 
 ### <!--MESSAGE-->Hello World!<!--END MESSAGE-->
 
