@@ -8,72 +8,9 @@ See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolati
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
 #### [Example 1 Workflow](https://github.com/austenstone/markdown-interpolation-action/blob/main/.github/workflows/usage.yml)
-```yml
-<!--USAGE-->name: Write Time to README.md
-on:
-  workflow_dispatch:
-    inputs:
-      message:
-        description: 'A message to show in the README.md file'     
-        required: true
-        default: 'Hello World!'
-  schedule:
-    - cron: '* * * * *'
 
-jobs:
-  run:
-    name: Write Time
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/github-script@v6
-        id: values
-        env:
-          AUTHOR: ${{ github.actor	}}
-          MESSAGE: ${{ github.event.inputs.message }}
-        with:
-          script: |
-            const fs = require('fs')
-            return {
-              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
-              AUTHOR: process.env.AUTHOR,
-              MESSAGE: process.env.MESSAGE,
-              USAGE: fs.readFileSync('.github/workflows/usage.yml').toString()
-            }
-      - uses: ./
-        with:
-          values: ${{ steps.values.outputs.result }}
-      - uses: stefanzweifel/git-auto-commit-action@v4
-<!--END USAGE-->
 ```yml
-```yml
-name: Write Time to README.md
-on:
-  schedule:
-    - cron: '* * * * *'
-
-jobs:
-  run:
-    name: Write Time
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/github-script@v6
-        id: values
-        env:
-          AUTHOR: ${{ github.actor }}
-        with:
-          script: |
-            return {
-              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
-              AUTHOR: process.env.AUTHOR
-            }
-      - id: interpolation
-        uses: austenstone/markdown-interpolation-action@main
-        with:
-          values: ${{ steps.values.outputs.result }}
-      - uses: stefanzweifel/git-auto-commit-action@v4
-      - run: echo '${{ steps.interpolation.outputs.result }}'
+<!--USAGE--><!--END USAGE-->
 ```
 ### Example 1 README
 ```md
