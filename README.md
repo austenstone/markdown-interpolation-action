@@ -75,10 +75,12 @@ jobs:
         id: values
         env:
           MESSAGE: ${{ github.event.inputs.message }}
+          AUTHOR: ${{ github.actor }}
         with:
           script: |
             return {
               MESSAGE: process.env.MESSAGE,
+              AUTHOR: process.env.AUTHOR,
             };
       - uses: austenstone/markdown-interpolation-action@master
         with:
