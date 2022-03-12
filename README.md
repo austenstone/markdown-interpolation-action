@@ -90,11 +90,11 @@ jobs:
 
 ### Example 2 README
 ```md
-@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
+@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE-->Hello World!<!--END MESSAGE-->
 ```
 
 ### Example 2 Result (LIVE)
-@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
+@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE-->Hello World!<!--END MESSAGE-->
 
 ---
 
