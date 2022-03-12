@@ -1,17 +1,14 @@
 name: Write Time to README.md
 on:
-  workflow_dispatch:
-    inputs:
-      message:
-        description: 'A message to show in the README.md file'     
-        required: true
-        default: 'Hello World!'
-  schedule:
-    - cron: '* * * * *'
+  push:
+    branches:    
+      - 'main'
+    paths:
+      - '.github/workflows/**.yml'
 
 jobs:
   run:
-    name: Write Time
+    name: Write Usage to README.md
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,10 +19,11 @@ jobs:
           MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
+            const fs = require('fs')
+            let usage = fs.readFileSync('.github/workflows/usage.yml').toString();
+            usage = usage.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')
             return {
-              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
-              AUTHOR: process.env.AUTHOR,
-              MESSAGE: process.env.MESSAGE,
+              USAGE: '\n```yml\n' + usage + '\n```\n'
             }
       - uses: ./
         with:
