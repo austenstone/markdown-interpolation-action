@@ -55,11 +55,8 @@ const markdown_interpolation_1 = __nccwpck_require__(3);
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
     const valuesOutput = {};
     try {
-        const values = core.getInput('values');
         const filesRegex = core.getInput('files-regex');
         const filesRegexFlags = core.getInput('files-regex-flags');
-        if (!values)
-            throw Error(`No input 'values'`);
         const regex = new RegExp(filesRegex, filesRegexFlags);
         const valuesRead = (0, markdown_interpolation_1.mdFileReadRegex)(regex);
         if (valuesRead) {
@@ -67,6 +64,9 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
                 valuesOutput[valueRead.key] = valueRead.value;
             }
         }
+        const values = core.getInput('values');
+        if (!values)
+            throw Error(`No input 'values'`);
         let valuesInput;
         try {
             valuesInput = JSON.parse(values);
@@ -74,7 +74,6 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         catch (_a) {
             throw Error(`Failed to parse JSON ${values}`);
         }
-        core.info(`${regex.source} ${JSON.stringify(valuesInput, null, 2)}`);
         (0, markdown_interpolation_1.mdFileWriteRegex)(regex, valuesInput);
     }
     catch (error) {
