@@ -1,10 +1,8 @@
 name: Example 4
 on:
-  push:
-    branches:
-      - "main"
-    paths:
-      - ".github/workflows/**.yml"
+  issue:
+    type:
+      - "opened"
 
 jobs:
   run:
