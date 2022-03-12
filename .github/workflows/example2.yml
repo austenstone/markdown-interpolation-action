@@ -19,15 +19,15 @@ jobs:
           MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
-            const fs = require('fs')
+            const fs = require('fs');
             let example1 = fs.readFileSync('.github/workflows/example1.yml').toString();
             let example2 = fs.readFileSync('.github/workflows/example2.yml').toString();
-            example1 = example1.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')
-            example2 = example2.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')
+            example1 = example1.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master');
+            example2 = example2.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master');
             return {
               EXAMPLE1: '\n```yml\n' + example1 + '\n```\n',
               EXAMPLE2: '\n```yml\n' + example2 + '\n```\n'
-            }
+            };
       - uses: ./
         with:
           values: ${{ steps.values.outputs.result }}
