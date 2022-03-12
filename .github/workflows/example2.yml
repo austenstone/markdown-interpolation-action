@@ -25,7 +25,7 @@ jobs:
             example1 = example1.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')
             example2 = example2.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')
             return {
-              EXAMPLE1: '\n```yml\n' + example1 + '\n```\n'
+              EXAMPLE1: '\n```yml\n' + example1 + '\n```\n',
               EXAMPLE2: '\n```yml\n' + example2 + '\n```\n'
             }
       - uses: ./
