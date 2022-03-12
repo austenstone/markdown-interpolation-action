@@ -13,10 +13,16 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/github-script@v6
         id: values
+        env:
+          TITLE: ${{ context.payload.issue.title }}
+          BODY: ${{ github.event.issue.body }}
+          NUMBER: ${{ github.event.issue.body }}
         with:
           script: |
             return {
-              CONTEXT: '\n```json\n' + JSON.stringify(context, null, 2) + '\n```\n',
+              TITLE: context.payload.issue.title,
+              BODY: context.payload.issue.body,
+              NUMBER: context.payload.issue.number,
             };
       - uses: ./
         with:
