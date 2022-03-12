@@ -58,6 +58,7 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         const filesRegex = core.getInput('files-regex');
         const filesRegexFlags = core.getInput('files-regex-flags');
         const regex = new RegExp(filesRegex, filesRegexFlags);
+        core.info(`Regex: /${filesRegex}/${filesRegexFlags}`);
         const valuesRead = (0, markdown_interpolation_1.mdFileReadRegex)(regex);
         if (valuesRead) {
             for (const valueRead of valuesRead) {
@@ -74,11 +75,17 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
         catch (_a) {
             throw Error(`Failed to parse JSON ${values}`);
         }
+        core.startGroup('Input');
+        core.info(JSON.stringify(valuesInput, null, 2));
+        core.endGroup();
         (0, markdown_interpolation_1.mdFileWriteRegex)(regex, valuesInput);
     }
     catch (error) {
         core.setFailed(JSON.stringify(error));
     }
+    core.startGroup('Output');
+    core.info(JSON.stringify(valuesOutput, null, 2));
+    core.endGroup();
     core.setOutput('values', valuesOutput);
     return valuesOutput;
 });

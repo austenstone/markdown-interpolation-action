@@ -8,6 +8,8 @@ const run = async (): Promise<{ key: string; value: string; } | {}> => {
     const filesRegexFlags = core.getInput('files-regex-flags');
     const regex = new RegExp(filesRegex, filesRegexFlags);
 
+    core.info(`Regex: /${filesRegex}/${filesRegexFlags}`);
+
     const valuesRead = mdFileReadRegex(regex);
     if (valuesRead) {
       for (const valueRead of valuesRead) {
@@ -23,11 +25,17 @@ const run = async (): Promise<{ key: string; value: string; } | {}> => {
     } catch {
       throw Error(`Failed to parse JSON ${values}`);
     }
+    core.startGroup('Input');
+    core.info(JSON.stringify(valuesInput, null, 2));
+    core.endGroup();
     mdFileWriteRegex(regex, valuesInput);
   } catch (error) {
     core.setFailed(JSON.stringify(error));
   }
 
+  core.startGroup('Output');
+  core.info(JSON.stringify(valuesOutput, null, 2));
+  core.endGroup();
   core.setOutput('values', valuesOutput);
   return valuesOutput;
 };
