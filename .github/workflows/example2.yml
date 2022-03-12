@@ -1,4 +1,4 @@
-name: Example 3
+name: Example 2
 on:
   workflow_dispatch:
     inputs:
