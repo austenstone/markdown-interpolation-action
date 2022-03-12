@@ -41,11 +41,11 @@ jobs:
 
 ### Example 1 README
 ```md
-##### Last Updated: <!--TIME-->3/12/2022, 10:26:25 AM<!--END TIME-->
+##### Last Updated: <!--TIME-->3/12/2022, 10:34:19 AM<!--END TIME-->
 ```
 
 ### Example 1 Result (LIVE)
-##### Last Updated: <!--TIME-->3/12/2022, 10:26:25 AM<!--END TIME-->
+##### Last Updated: <!--TIME-->3/12/2022, 10:34:19 AM<!--END TIME-->
 
 ---
 
@@ -126,7 +126,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const examples = ['example1', 'example2', 'example3', 'example4'];
+            const examples = ['example1', 'example2', 'example3'];
             const values = {};
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
