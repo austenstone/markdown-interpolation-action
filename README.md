@@ -9,8 +9,8 @@ Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow fi
 
 #### [Example 1 Workflow](https://github.com/austenstone/markdown-interpolation-action/blob/main/.github/workflows/usage.yml)
 
-```yml
 <!--USAGE--><!--END USAGE-->
+
 ```
 ### Example 1 README
 ```md
