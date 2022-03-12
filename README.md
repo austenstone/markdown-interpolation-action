@@ -56,37 +56,31 @@ An example to manually update a message on the README.md file.
 #### [Example 2 Workflow](.github/workflows/example2.yml)
 <!--EXAMPLE2-->
 ```yml
-name: Example 2
+name: Example 3
 on:
-  push:
-    branches:
-      - "main"
-    paths:
-      - ".github/workflows/**.yml"
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "A message to show in the README.md file"
+        required: true
+        default: "Hello World!"
 
 jobs:
   run:
-    name: Write EXAMPLE to README.md
+    name: Write Time to README.md
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/github-script@v6
         id: values
         env:
-          AUTHOR: ${{ github.actor }}
           MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
-            const fs = require('fs');
-            const examples = ['example1', 'example2', 'example3'];
-            const values = {};
-            examples.forEach((example) => {
-              let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
-              content = content.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master');
-              values[example.toUpperCase()] = '\n```yml\n' + content + '\n```\n';
-            });
-            return values;
-      - uses: ./
+            return {
+              MESSAGE: process.env.MESSAGE,
+            };
+      - uses: austenstone/markdown-interpolation-action@master
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -111,7 +105,7 @@ This example is actually updating the code examples for both examples 🤯.
 #### [Example 3 Workflow](.github/workflows/example2.yml)
 <!--EXAMPLE3-->
 ```yml
-name: Example 2
+name: Example 3
 on:
   push:
     branches:
