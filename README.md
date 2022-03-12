@@ -35,20 +35,12 @@ jobs:
           MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
-            const fs = require('fs')
-            let usage = fs.readFileSync('.github/workflows/usage.yml').toString();
-            usage = usage.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master')
-            usage = usage.replace(`
-            let usage = fs.readFileSync('.github/workflows/usage.yml').toString();
-            usage = usage.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')
-            usage = usage.replace(\`usage = usage.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')\`, '')`, '')
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
               AUTHOR: process.env.AUTHOR,
               MESSAGE: process.env.MESSAGE,
-              USAGE: '\n```yml\n' + usage + '\n```\n'
             }
-      - uses: ./
+      - uses: austenstone/markdown-interpolation-action@master
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
