@@ -17,7 +17,7 @@ jobs:
         with:
           script: |
             return {
-              CONTEXT: JSON.stringify(context, null, 2),
+              CONTEXT: '\n```json\n' + JSON.stringify(context, null, 2) + '\n```\n',
             };
       - uses: ./
         with:
