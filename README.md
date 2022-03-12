@@ -56,7 +56,7 @@ An example to manually update a message on the README.md file.
 #### [Example 2 Workflow](.github/workflows/example2.yml)
 <!--EXAMPLE2-->
 ```yml
-name: Example 3
+name: Example 2
 on:
   workflow_dispatch:
     inputs:
