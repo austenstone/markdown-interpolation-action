@@ -159,7 +159,7 @@ Examine the event context of the last run.
 <!--END EXAMPLE4-->
 
 ### Example 4 Result (LIVE)
-#### <!--TITLE--><!--END TITLE--> #<!--NUMBER--><!--END NUMBER-->
+#### <!--TITLE--><!--END TITLE--> <!--NUMBER--><!--END NUMBER-->
 <!--BODY--><!--END BODY-->
 
 ## Inputs

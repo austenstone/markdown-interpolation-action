@@ -22,7 +22,7 @@ jobs:
             return {
               TITLE: context.payload.issue.title,
               BODY: context.payload.issue.body,
-              NUMBER: context.payload.issue.number,
+              NUMBER: '#' + context.payload.issue.number,
             };
       - uses: ./
         with:
