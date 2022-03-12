@@ -121,7 +121,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const examples = ['example1', 'example2', 'example3'];
+            const examples = ['example1', 'example2', 'example3', 'example4'];
             const values = {};
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
@@ -146,6 +146,35 @@ Examine the event context of the last run.
 
 #### [Example 4 Workflow](.github/workflows/example4.yml)
 <!--EXAMPLE4-->
+```yml
+name: Example 4
+on:
+  issues:
+    types:
+      - opened
+      - edited
+
+jobs:
+  run:
+    name: Write EXAMPLE to README.md
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/github-script@v6
+        id: values
+        with:
+          script: |
+            return {
+              TITLE: context.payload.issue.title,
+              BODY: context.payload.issue.body,
+              NUMBER: '#' + context.payload.issue.number,
+            };
+      - uses: austenstone/markdown-interpolation-action@master
+        with:
+          values: ${{ steps.values.outputs.result }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+
+```
 <!--END EXAMPLE4-->
 
 ### Example 4 Result (LIVE)
