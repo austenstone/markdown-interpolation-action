@@ -1,0 +1,25 @@
+name: Example 3
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/**.yml"
+
+jobs:
+  run:
+    name: Write EXAMPLE to README.md
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/github-script@v6
+        id: values
+        with:
+          script: |
+            return {
+              CONTEXT: JSON.stringify(context, null, 2),
+            };
+      - uses: ./
+        with:
+          values: ${{ steps.values.outputs.result }}
+      - uses: stefanzweifel/git-auto-commit-action@v4

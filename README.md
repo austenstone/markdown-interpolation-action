@@ -102,9 +102,9 @@ jobs:
 
 ## EXAMPLE 3
 
-This example is actually updating all the example workflows including itself 🤯
+This example is actually upating the README.md examples themselves 🤯
 
-#### [Example 3 Workflow](.github/workflows/example2.yml)
+#### [Example 3 Workflow](.github/workflows/example3.yml)
 <!--EXAMPLE3-->
 ```yml
 name: Example 3
@@ -126,7 +126,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const examples = ['example1', 'example2', 'example3'];
+            const examples = ['example1', 'example2', 'example3', 'example4'];
             const values = {};
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
@@ -142,12 +142,24 @@ jobs:
 ```
 <!--END EXAMPLE3-->
 
-### Example 3 README
-You're looking at it.
-
 ### Example 3 Result (LIVE)
-yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), and [Example 3](#example-3-workflow).
+yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), [Example 3](#example-3-workflow), [Example 4](#example-4-workflow).
 
+
+---
+
+## EXAMPLE 4
+
+Examine the event context of the last run.
+⚠️ This is just an example and shouldn't be used on a public repository.
+
+#### [Example 4 Workflow](.github/workflows/example4.yml)
+<!--EXAMPLE4-->
+<!--END EXAMPLE4-->
+
+### Example 4 Result (LIVE)
+<!--CONTEXT-->
+<!--END CONTEXT-->
 ## Inputs
 
 | Name | Description | Default |
