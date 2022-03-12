@@ -159,8 +159,8 @@ Examine the event context of the last run.
 <!--END EXAMPLE4-->
 
 ### Example 4 Result (LIVE)
-#### <!--TITLE--><!--END TITLE--> <!--NUMBER--><!--END NUMBER-->
-<!--BODY--><!--END BODY-->
+#### <!--TITLE-->Example 4 Test<!--END TITLE--> <!--NUMBER-->#1<!--END NUMBER-->
+<!--BODY-->This is a test for Example 4.<!--END BODY-->
 
 ## Inputs
 
