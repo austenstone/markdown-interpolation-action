@@ -39,11 +39,11 @@ jobs:
 
 ### Example 1 README
 ```md
-##### Last Updated: <!--TIME-->3/12/2022, 2:22:46 AM<!--END TIME-->
+##### Last Updated: <!--TIME-->3/12/2022, 2:35:08 AM<!--END TIME-->
 ```
 
 ### Example 1 Result (LIVE)
-##### Last Updated: <!--TIME-->3/12/2022, 2:22:46 AM<!--END TIME-->
+##### Last Updated: <!--TIME-->3/12/2022, 2:35:08 AM<!--END TIME-->
 
 ### Example 2
 This example is actually updating the code examples for both examples 🤯.
