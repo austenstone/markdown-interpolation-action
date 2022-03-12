@@ -50,13 +50,11 @@ jobs:
 
 ### Example 1 README
 ```md
-Last updated: <!--TIME-->3/12/2022, 2:29:05 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+##### Last Updated: <!--TIME-->3/12/2022, 2:22:46 AM<!--END TIME-->
 ```
 
 ### Example 1 Result (LIVE)
-Last updated: <!--TIME-->3/12/2022, 2:29:05 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
-
-### <!--MESSAGE--><!--END MESSAGE-->
+##### Last Updated: <!--TIME-->3/12/2022, 2:22:46 AM<!--END TIME-->
 
 ### Example 2
 This example is actually updating the code examples for both examples 🤯.
@@ -106,7 +104,28 @@ jobs:
 You're looking at it.
 
 ### Example 2 Result (LIVE)
-yaml code snippets [Example 1](#example-1-workflow) and [Example 2](#example-2-workflow).
+yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), and [Example 3](#example-3-workflow).
+
+### Example 3
+An example to manually update a message on the README.md file.
+
+### Example 3 README
+```md
+@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
+```
+
+### Example 3 Result (LIVE)
+@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
+
+#### [Example 3 Workflow](.github/workflows/example2.yml)
+<!--EXAMPLE3-->
+<!--END EXAMPLE3-->
+
+### Example 2 README
+You're looking at it.
+
+### Example 2 Result (LIVE)
+yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), and [Example 3](#example-3-workflow).
 
 ## Inputs
 
