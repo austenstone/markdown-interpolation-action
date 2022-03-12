@@ -4,6 +4,8 @@ This action interpolates markdown with variables.
 
 See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolation#writing) to understand how to use the interpolation syntax.
 
+---
+
 ## EXAMPLE 1
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
@@ -45,14 +47,59 @@ jobs:
 ### Example 1 Result (LIVE)
 ##### Last Updated: <!--TIME-->3/12/2022, 2:41:03 AM<!--END TIME-->
 
+---
+
 ## EXAMPLE 2
+
+An example to manually update a message on the README.md file.
+
+#### [Example 2 Workflow](.github/workflows/example2.yml)
+<!--EXAMPLE3-->name: Example 3
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "A message to show in the README.md file"
+        required: true
+        default: "Hello World!"
+
+jobs:
+  run:
+    name: Write Time to README.md
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/github-script@v6
+        id: values
+        env:
+          MESSAGE: ${{ github.event.inputs.message }}
+        with:
+          script: |
+            return {
+              MESSAGE: process.env.MESSAGE,
+            };
+      - uses: austenstone/markdown-interpolation-action@master
+        with:
+          values: ${{ steps.values.outputs.result }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+<!--END EXAMPLE3-->
+
+### Example 2 README
+```md
+@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
+```
+
+### Example 2 Result (LIVE)
+@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
+
+---
+
+## EXAMPLE 3
 
 This example is actually updating the code examples for both examples 🤯.
 
-#### [Example 2 Workflow](.github/workflows/example2.yml)
-<!--EXAMPLE2-->
-```yml
-name: Example 2
+#### [Example 3 Workflow](.github/workflows/example2.yml)
+<!--EXAMPLE3-->name: Example 2
 on:
   push:
     branches:
@@ -86,63 +133,13 @@ jobs:
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
-
-```
-<!--END EXAMPLE2-->
-
-### Example 2 README
-You're looking at it.
-
-### Example 2 Result (LIVE)
-yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), and [Example 3](#example-3-workflow).
-
-## EXAMPLE 3
-
-An example to manually update a message on the README.md file.
-
-#### [Example 3 Workflow](.github/workflows/example2.yml)
-<!--EXAMPLE3-->
-```yml
-name: Example 3
-on:
-  workflow_dispatch:
-    inputs:
-      message:
-        description: "A message to show in the README.md file"
-        required: true
-        default: "Hello World!"
-
-jobs:
-  run:
-    name: Write Time to README.md
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/github-script@v6
-        id: values
-        env:
-          MESSAGE: ${{ github.event.inputs.message }}
-        with:
-          script: |
-            return {
-              MESSAGE: process.env.MESSAGE,
-            };
-      - uses: austenstone/markdown-interpolation-action@master
-        with:
-          values: ${{ steps.values.outputs.result }}
-      - uses: stefanzweifel/git-auto-commit-action@v4
-
-```
 <!--END EXAMPLE3-->
 
 ### Example 3 README
-```md
-@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
-```
+You're looking at it.
 
 ### Example 3 Result (LIVE)
-@<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE--><!--END MESSAGE-->
-
+yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), and [Example 3](#example-3-workflow).
 
 ## Inputs
 
