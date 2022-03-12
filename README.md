@@ -102,6 +102,12 @@ jobs:
 ```
 <!--END EXAMPLE2-->
 
+### Example 2 README
+You're looking at it.
+
+### Example 2 Result (LIVE)
+yaml code snippets [Example 1](#example-1-workflow) and [Example 2](#example-2-workflow).
+
 ## Inputs
 
 | Name | Description | Default |
@@ -114,4 +120,4 @@ jobs:
 
 | Name | Description | Default |
 | --- | - | - |
-| **values** | JSON values read. (last value) | {} |
+| **values** | JSON values read. (last values) | {} |
