@@ -4,8 +4,6 @@ This action interpolates markdown with variables.
 
 See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolation#writing) to understand how to use the interpolation syntax.
 
----
-
 ## EXAMPLE 1
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
@@ -46,8 +44,6 @@ jobs:
 
 ### Example 1 Result (LIVE)
 ##### Last Updated: <!--TIME-->3/12/2022, 12:18:01 PM<!--END TIME-->
-
----
 
 ## EXAMPLE 2
 
@@ -98,8 +94,6 @@ jobs:
 ### Example 2 Result (LIVE)
 @<!--AUTHOR-->austenstone<!--END AUTHOR--> says <!--MESSAGE-->Hello World!<!--END MESSAGE-->
 
----
-
 ## EXAMPLE 3
 
 This example is actually upating the README.md examples themselves 🤯
@@ -139,15 +133,11 @@ jobs:
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
-
 ```
 <!--END EXAMPLE3-->
 
 ### Example 3 Result (LIVE)
 yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-workflow), [Example 3](#example-3-workflow), [Example 4](#example-4-workflow).
-
-
----
 
 ## EXAMPLE 4
 
