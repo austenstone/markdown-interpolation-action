@@ -20,14 +20,14 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            let example1 = fs.readFileSync('.github/workflows/example1.yml').toString();
-            let example2 = fs.readFileSync('.github/workflows/example2.yml').toString();
-            example1 = example1.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master');
-            example2 = example2.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master');
-            return {
-              EXAMPLE1: '\n```yml\n' + example1 + '\n```\n',
-              EXAMPLE2: '\n```yml\n' + example2 + '\n```\n'
-            };
+            const examples = ['example1', 'example2', 'example3'];
+            const values = {};
+            examples.forEach((example) => {
+              let content = fs.readFileSync('.github/workflows/example1.yml').toString();
+              content = content.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master');
+              values[example.toUpperCase()] = content;
+            });
+            return values;
       - uses: ./
         with:
           values: ${{ steps.values.outputs.result }}
