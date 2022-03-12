@@ -46,25 +46,37 @@ jobs:
 This example is actually updating the code examples for both examples 🤯.
 
 #### [Example 2 Workflow](.github/workflows/example2.yml)
-<!--EXAMPLE2-->name: Example 1
+<!--EXAMPLE2-->name: Example 2
 on:
-  schedule:
-    - cron: "* * * * *"
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/**.yml"
 
 jobs:
   run:
-    name: Write Time to README.md
+    name: Write EXAMPLE to README.md
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/github-script@v6
         id: values
+        env:
+          AUTHOR: ${{ github.actor }}
+          MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
-            return {
-              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
-            };
-      - uses: austenstone/markdown-interpolation-action@master
+            const fs = require('fs');
+            const examples = ['example1', 'example2', 'example3'];
+            const values = {};
+            examples.forEach((example) => {
+              let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
+              content = content.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master');
+              values[example.toUpperCase()] = content;
+            });
+            return values;
+      - uses: ./
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -81,10 +93,14 @@ yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-work
 An example to manually update a message on the README.md file.
 
 #### [Example 3 Workflow](.github/workflows/example2.yml)
-<!--EXAMPLE3-->name: Example 1
+<!--EXAMPLE3-->name: Example 3
 on:
-  schedule:
-    - cron: "* * * * *"
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "A message to show in the README.md file"
+        required: true
+        default: "Hello World!"
 
 jobs:
   run:
@@ -94,10 +110,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/github-script@v6
         id: values
+        env:
+          MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
             return {
-              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
+              MESSAGE: process.env.MESSAGE,
             };
       - uses: austenstone/markdown-interpolation-action@master
         with:
