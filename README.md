@@ -50,13 +50,13 @@ jobs:
 
 ### Example 1 README
 ```md
-Last updated: <!--TIME-->3/12/2022, 2:03:14 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 2:10:51 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 ```
 
 ### Example 1 Result (LIVE)
-Last updated: <!--TIME-->3/12/2022, 2:03:14 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 2:10:51 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 
-### <!--MESSAGE-->Hello World!<!--END MESSAGE-->
+### <!--MESSAGE--><!--END MESSAGE-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
