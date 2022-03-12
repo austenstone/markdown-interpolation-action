@@ -1,8 +1,9 @@
 name: Example 4
 on:
-  issue:
-    type:
-      - "opened"
+  issues:
+    types:
+      - opened
+      - edited
 
 jobs:
   run:
