@@ -26,7 +26,7 @@ jobs:
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
               AUTHOR: process.env.AUTHOR,
               MESSAGE: process.env.MESSAGE,
-            }
+            };
       - uses: ./
         with:
           values: ${{ steps.values.outputs.result }}
