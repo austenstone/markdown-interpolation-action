@@ -123,9 +123,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/github-script@v6
         id: values
-        env:
-          AUTHOR: ${{ github.actor }}
-          MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
             const fs = require('fs');
