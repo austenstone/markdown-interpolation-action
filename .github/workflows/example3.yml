@@ -1,4 +1,4 @@
-name: Example 2
+name: Example 3
 on:
   push:
     branches:
