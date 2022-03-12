@@ -27,7 +27,7 @@ jobs:
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
               AUTHOR: process.env.AUTHOR,
               MESSAGE: process.env.MESSAGE,
-              USAGE: '```yml\n' + fs.readFileSync('.github/workflows/usage.yml').toString() + '\n```'
+              USAGE: '\n```yml\n' + fs.readFileSync('.github/workflows/usage.yml').toString() + '\n```\n'
             }
       - uses: ./
         with:
