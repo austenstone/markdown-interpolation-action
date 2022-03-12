@@ -18,6 +18,10 @@ inputs:
     description: The values as JSON.
     required: true
 
+outputs:
+  values:
+    description: The read values as JSON.
+
 runs:
   using: "node16"
   main: "dist/index.js"
