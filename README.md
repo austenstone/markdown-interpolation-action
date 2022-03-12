@@ -7,7 +7,10 @@ See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolati
 ## Usage
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
-#### [Example 1 Workflow](https://github.com/austenstone/markdown-interpolation-action/blob/main/.github/workflows/usage.yaml)
+#### [Example 1 Workflow](https://github.com/austenstone/markdown-interpolation-action/blob/main/.github/workflows/usage.yml)
+```yml
+<!--USAGE--><!--END USAGE-->
+```yml
 ```yml
 name: Write Time to README.md
 on:
@@ -30,10 +33,12 @@ jobs:
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
               AUTHOR: process.env.AUTHOR
             }
-      - uses: austenstone/markdown-interpolation-action@main
+      - id: interpolation
+        uses: austenstone/markdown-interpolation-action@main
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
+      - run: echo '${{ steps.interpolation.outputs.result }}'
 ```
 ### Example 1 README
 ```md
