@@ -81,7 +81,7 @@ jobs:
       - uses: actions/github-script@v6
         id: values
         env:
-          AUTHOR: ${{ github.actor	}}
+          AUTHOR: ${{ github.actor }}
           MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
