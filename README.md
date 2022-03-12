@@ -59,6 +59,7 @@ Last updated: <!--TIME-->3/12/2022, 2:10:51 AM<!--END TIME--> (EST) by @<!--AUTH
 ### <!--MESSAGE--><!--END MESSAGE-->
 
 ### Example 2
+This example is actually updating the code examples for both examples 🤯.
 
 #### [Example 2 Workflow](.github/workflows/example2.yml)
 <!--EXAMPLE2-->
