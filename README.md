@@ -38,7 +38,10 @@ jobs:
             const fs = require('fs')
             let usage = fs.readFileSync('.github/workflows/usage.yml').toString();
             usage = usage.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master')
-            usage = usage.replace(``, '');
+            usage = usage.replace(`
+            let usage = fs.readFileSync('.github/workflows/usage.yml').toString();
+            usage = usage.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')
+            usage = usage.replace(\`usage = usage.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')\`, '')`, '')
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
               AUTHOR: process.env.AUTHOR,
@@ -55,11 +58,11 @@ jobs:
 
 ### Example 1 README
 ```md
-Last updated: <!--TIME-->3/12/2022, 2:00:35 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 2:03:14 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 ```
 
 ### Example 1 Result (LIVE)
-Last updated: <!--TIME-->3/12/2022, 2:00:35 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 2:03:14 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 
 ### <!--MESSAGE-->Hello World!<!--END MESSAGE-->
 
