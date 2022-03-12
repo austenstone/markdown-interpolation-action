@@ -22,11 +22,11 @@ jobs:
           MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
-            var fs = require('fs')
+            const fs = require('fs')
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
               AUTHOR: process.env.AUTHOR,
-              MESSAGE: process.env.MESSAGE
+              MESSAGE: process.env.MESSAGE,
               USAGE: fs.readFileSync('.github/workflows/usage.yml').toString()
             }
       - uses: ./
