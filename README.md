@@ -9,7 +9,9 @@ Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow fi
 
 #### [Example 1 Workflow](.github/workflows/example1.yml)
 
-<!--EXAMPLE1-->name: Example 1
+<!--EXAMPLE1-->
+```yml
+name: Example 1
 on:
   schedule:
     - cron: "* * * * *"
@@ -31,6 +33,8 @@ jobs:
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
+
+```
 <!--END EXAMPLE1-->
 
 ### Example 1 README
@@ -46,7 +50,9 @@ jobs:
 This example is actually updating the code examples for both examples 🤯.
 
 #### [Example 2 Workflow](.github/workflows/example2.yml)
-<!--EXAMPLE2-->name: Example 2
+<!--EXAMPLE2-->
+```yml
+name: Example 2
 on:
   push:
     branches:
@@ -73,13 +79,15 @@ jobs:
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
               content = content.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master');
-              values[example.toUpperCase()] = content;
+              values[example.toUpperCase()] = '\n```yml\n' + content + '\n```\n';
             });
             return values;
       - uses: ./
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
+
+```
 <!--END EXAMPLE2-->
 
 ### Example 2 README
@@ -93,7 +101,9 @@ yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-work
 An example to manually update a message on the README.md file.
 
 #### [Example 3 Workflow](.github/workflows/example2.yml)
-<!--EXAMPLE3-->name: Example 3
+<!--EXAMPLE3-->
+```yml
+name: Example 3
 on:
   workflow_dispatch:
     inputs:
@@ -121,6 +131,8 @@ jobs:
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
+
+```
 <!--END EXAMPLE3-->
 
 ### Example 3 README
