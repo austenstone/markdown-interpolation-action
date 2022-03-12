@@ -100,7 +100,7 @@ jobs:
 
 ## EXAMPLE 3
 
-This example is actually updating the code examples for all the examples including itself 🤯
+This example is actually updating all the example workflows including itself 🤯
 
 #### [Example 3 Workflow](.github/workflows/example2.yml)
 <!--EXAMPLE3-->
