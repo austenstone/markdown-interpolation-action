@@ -16,15 +16,14 @@ const run = async (): Promise<{ key: string; value: string; } | {}> => {
         valuesOutput[valueRead.key] = valueRead.value;
       }
     }
+    core.startGroup('Output');
+    core.info(JSON.stringify(valuesOutput, null, 2));
+    core.endGroup();
+    core.setOutput('values', valuesOutput);
 
     const values = core.getInput('values');
     if (!values) throw Error(`No input 'values'`);
-    let valuesInput;
-    try {
-      valuesInput = JSON.parse(values);
-    } catch {
-      throw Error(`Failed to parse JSON ${values}`);
-    }
+    const valuesInput = JSON.parse(values);
     core.startGroup('Input');
     core.info(JSON.stringify(valuesInput, null, 2));
     core.endGroup();
@@ -33,10 +32,6 @@ const run = async (): Promise<{ key: string; value: string; } | {}> => {
     core.setFailed(JSON.stringify(error));
   }
 
-  core.startGroup('Output');
-  core.info(JSON.stringify(valuesOutput, null, 2));
-  core.endGroup();
-  core.setOutput('values', valuesOutput);
   return valuesOutput;
 };
 

@@ -65,16 +65,14 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
                 valuesOutput[valueRead.key] = valueRead.value;
             }
         }
+        core.startGroup('Output');
+        core.info(JSON.stringify(valuesOutput, null, 2));
+        core.endGroup();
+        core.setOutput('values', valuesOutput);
         const values = core.getInput('values');
         if (!values)
             throw Error(`No input 'values'`);
-        let valuesInput;
-        try {
-            valuesInput = JSON.parse(values);
-        }
-        catch (_a) {
-            throw Error(`Failed to parse JSON ${values}`);
-        }
+        const valuesInput = JSON.parse(values);
         core.startGroup('Input');
         core.info(JSON.stringify(valuesInput, null, 2));
         core.endGroup();
@@ -83,10 +81,6 @@ const run = () => __awaiter(void 0, void 0, void 0, function* () {
     catch (error) {
         core.setFailed(JSON.stringify(error));
     }
-    core.startGroup('Output');
-    core.info(JSON.stringify(valuesOutput, null, 2));
-    core.endGroup();
-    core.setOutput('values', valuesOutput);
     return valuesOutput;
 });
 exports["default"] = run;
