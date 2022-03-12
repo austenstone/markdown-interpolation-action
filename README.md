@@ -13,12 +13,6 @@ Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow fi
 ```yml
 name: Example 1
 on:
-  workflow_dispatch:
-    inputs:
-      message:
-        description: "A message to show in the README.md file"
-        required: true
-        default: "Hello World!"
   schedule:
     - cron: "* * * * *"
 
@@ -30,15 +24,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/github-script@v6
         id: values
-        env:
-          AUTHOR: ${{ github.actor }}
-          MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
-              AUTHOR: process.env.AUTHOR,
-              MESSAGE: process.env.MESSAGE,
             };
       - uses: austenstone/markdown-interpolation-action@master
         with:
