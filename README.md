@@ -11,7 +11,7 @@ Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow fi
 
 <!--USAGE-->
 ```yml
-name: Write Time to README.md
+name: Example 1
 on:
   workflow_dispatch:
     inputs:
@@ -24,7 +24,7 @@ on:
 
 jobs:
   run:
-    name: Write Time
+    name: Write Time to README.md
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
