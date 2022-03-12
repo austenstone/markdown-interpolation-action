@@ -23,7 +23,7 @@ jobs:
         with:
           script: |
             const fs = require('fs')
-            const usage = fs.readFileSync('.github/workflows/usage.yml').toString();
+            let usage = fs.readFileSync('.github/workflows/usage.yml').toString();
             usage = usage.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')
             usage = usage.replace(`usage = usage.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master')`, '');
             return {
