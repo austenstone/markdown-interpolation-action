@@ -103,6 +103,7 @@ jobs:
 ## EXAMPLE 3
 
 This example is actually upating the README.md examples themselves 🤯
+These example `yml` scripts in the README are generated automatically when the files change.
 
 #### [Example 3 Workflow](.github/workflows/example3.yml)
 <!--EXAMPLE3-->
