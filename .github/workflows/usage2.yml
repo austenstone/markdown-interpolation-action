@@ -1,4 +1,4 @@
-name: Write Time to README.md
+name: Example 2
 on:
   push:
     branches:    
