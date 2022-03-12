@@ -62,7 +62,7 @@ Last updated: <!--TIME-->3/12/2022, 2:10:51 AM<!--END TIME--> (EST) by @<!--AUTH
 
 #### [Example 2 Workflow](.github/workflows/example2.yml)
 <!--EXAMPLE2-->
-<!--EXAMPLE2-->
+<!--END EXAMPLE2-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):
