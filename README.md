@@ -158,11 +158,13 @@ Examine the event context of the last run.
 <!--END EXAMPLE4-->
 
 ### Example 4 Result (LIVE)
-<!--CONTEXT-->{
+<!--CONTEXT-->
+```json
+{
   "payload": {
-    "after": "ec926645afbbc43fef3cabb67f2089f6a9bd9a9a",
+    "after": "2377440c45be94f2f5352950f14a669e78582b44",
     "base_ref": null,
-    "before": "07de7f31a8ce3b831faec2dc8d0a73954f0a8673",
+    "before": "a3c215d0f6148115b8467661f42fc8ceb65efa84",
     "commits": [
       {
         "author": {
@@ -176,11 +178,11 @@ Examine the event context of the last run.
           "username": "austenstone"
         },
         "distinct": true,
-        "id": "1d147ba46d54446f0cb8c772346445a09294cc83",
-        "message": "Example 4",
-        "timestamp": "2022-03-12T10:34:44-05:00",
-        "tree_id": "e7fb53cf7565ccf059def3311eb14eac92cad67a",
-        "url": "https://github.com/austenstone/markdown-interpolation-action/commit/1d147ba46d54446f0cb8c772346445a09294cc83"
+        "id": "6fb456f1e82fbb6304201d518629e032d6edc879",
+        "message": "test",
+        "timestamp": "2022-03-12T10:36:36-05:00",
+        "tree_id": "6541ded75d1bcd7cd4cfe4f5aac185f46a63df6c",
+        "url": "https://github.com/austenstone/markdown-interpolation-action/commit/6fb456f1e82fbb6304201d518629e032d6edc879"
       },
       {
         "author": {
@@ -194,14 +196,14 @@ Examine the event context of the last run.
           "username": "austenstone"
         },
         "distinct": true,
-        "id": "ec926645afbbc43fef3cabb67f2089f6a9bd9a9a",
+        "id": "2377440c45be94f2f5352950f14a669e78582b44",
         "message": "Merge branch 'main' of https://github.com/austenstone/markdown-interpolation-action into main",
-        "timestamp": "2022-03-12T10:34:47-05:00",
-        "tree_id": "a3991d5b6e2c33e5abb4c0d40151ed28a7959722",
-        "url": "https://github.com/austenstone/markdown-interpolation-action/commit/ec926645afbbc43fef3cabb67f2089f6a9bd9a9a"
+        "timestamp": "2022-03-12T10:36:38-05:00",
+        "tree_id": "3ae2bdc869fd15f4d75fec1884c29a4348318eff",
+        "url": "https://github.com/austenstone/markdown-interpolation-action/commit/2377440c45be94f2f5352950f14a669e78582b44"
       }
     ],
-    "compare": "https://github.com/austenstone/markdown-interpolation-action/compare/07de7f31a8ce...ec926645afbb",
+    "compare": "https://github.com/austenstone/markdown-interpolation-action/compare/a3c215d0f614...2377440c45be",
     "created": false,
     "deleted": false,
     "forced": false,
@@ -217,11 +219,11 @@ Examine the event context of the last run.
         "username": "austenstone"
       },
       "distinct": true,
-      "id": "ec926645afbbc43fef3cabb67f2089f6a9bd9a9a",
+      "id": "2377440c45be94f2f5352950f14a669e78582b44",
       "message": "Merge branch 'main' of https://github.com/austenstone/markdown-interpolation-action into main",
-      "timestamp": "2022-03-12T10:34:47-05:00",
-      "tree_id": "a3991d5b6e2c33e5abb4c0d40151ed28a7959722",
-      "url": "https://github.com/austenstone/markdown-interpolation-action/commit/ec926645afbbc43fef3cabb67f2089f6a9bd9a9a"
+      "timestamp": "2022-03-12T10:36:38-05:00",
+      "tree_id": "3ae2bdc869fd15f4d75fec1884c29a4348318eff",
+      "url": "https://github.com/austenstone/markdown-interpolation-action/commit/2377440c45be94f2f5352950f14a669e78582b44"
     },
     "pusher": {
       "email": "austenstone@github.com",
@@ -309,7 +311,7 @@ Examine the event context of the last run.
       },
       "private": false,
       "pulls_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/pulls{/number}",
-      "pushed_at": 1647099287,
+      "pushed_at": 1647099398,
       "releases_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/releases{/id}",
       "size": 575,
       "ssh_url": "git@github.com:austenstone/markdown-interpolation-action.git",
@@ -356,18 +358,20 @@ Examine the event context of the last run.
     }
   },
   "eventName": "push",
-  "sha": "ec926645afbbc43fef3cabb67f2089f6a9bd9a9a",
+  "sha": "2377440c45be94f2f5352950f14a669e78582b44",
   "ref": "refs/heads/main",
   "workflow": "Example 4",
   "action": "values",
   "actor": "austenstone",
   "job": "run",
-  "runNumber": 2,
-  "runId": 1973667538,
+  "runNumber": 3,
+  "runId": 1973671794,
   "apiUrl": "https://api.github.com",
   "serverUrl": "https://github.com",
   "graphqlUrl": "https://api.github.com/graphql"
-}<!--END CONTEXT-->
+}
+```
+<!--END CONTEXT-->
 ## Inputs
 
 | Name | Description | Default |
