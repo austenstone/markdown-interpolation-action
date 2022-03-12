@@ -144,7 +144,7 @@ yaml code snippets [Example 1](#example-1-workflow), [Example 2](#example-2-work
 Examine the event context of the last run.
 ⚠️ This is just an example and shouldn't be used on a public repository.
 
-#### [Example 4 Workflow](.github/workflows/example4.yml)
+### [Example 4 Workflow](.github/workflows/example4.yml)
 <!--EXAMPLE4-->
 ```yml
 name: Example 4
