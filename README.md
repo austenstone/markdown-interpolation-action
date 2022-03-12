@@ -15,11 +15,11 @@ NaN<!--END USAGE-->
 
 ### Example 1 README
 ```md
-Last updated: <!--TIME-->3/12/2022, 1:57:41 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 2:00:09 AM (EST)<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 ```
 
 ### Example 1 Result (LIVE)
-Last updated: <!--TIME-->3/12/2022, 1:57:41 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
+Last updated: <!--TIME-->3/12/2022, 2:00:09 AM (EST)<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 
 ### <!--MESSAGE-->Hello World!<!--END MESSAGE-->
 
