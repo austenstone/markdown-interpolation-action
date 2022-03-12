@@ -162,74 +162,71 @@ Examine the event context of the last run.
 ```json
 {
   "payload": {
-    "after": "2377440c45be94f2f5352950f14a669e78582b44",
-    "base_ref": null,
-    "before": "a3c215d0f6148115b8467661f42fc8ceb65efa84",
-    "commits": [
-      {
-        "author": {
-          "email": "austenstone@github.com",
-          "name": "Austen Stone",
-          "username": "austenstone"
-        },
-        "committer": {
-          "email": "austenstone@github.com",
-          "name": "Austen Stone",
-          "username": "austenstone"
-        },
-        "distinct": true,
-        "id": "6fb456f1e82fbb6304201d518629e032d6edc879",
-        "message": "test",
-        "timestamp": "2022-03-12T10:36:36-05:00",
-        "tree_id": "6541ded75d1bcd7cd4cfe4f5aac185f46a63df6c",
-        "url": "https://github.com/austenstone/markdown-interpolation-action/commit/6fb456f1e82fbb6304201d518629e032d6edc879"
-      },
-      {
-        "author": {
-          "email": "austenstone@github.com",
-          "name": "Austen Stone",
-          "username": "austenstone"
-        },
-        "committer": {
-          "email": "austenstone@github.com",
-          "name": "Austen Stone",
-          "username": "austenstone"
-        },
-        "distinct": true,
-        "id": "2377440c45be94f2f5352950f14a669e78582b44",
-        "message": "Merge branch 'main' of https://github.com/austenstone/markdown-interpolation-action into main",
-        "timestamp": "2022-03-12T10:36:38-05:00",
-        "tree_id": "3ae2bdc869fd15f4d75fec1884c29a4348318eff",
-        "url": "https://github.com/austenstone/markdown-interpolation-action/commit/2377440c45be94f2f5352950f14a669e78582b44"
+    "action": "edited",
+    "changes": {
+      "body": {
+        "from": "This is a test for example 4."
       }
-    ],
-    "compare": "https://github.com/austenstone/markdown-interpolation-action/compare/a3c215d0f614...2377440c45be",
-    "created": false,
-    "deleted": false,
-    "forced": false,
-    "head_commit": {
-      "author": {
-        "email": "austenstone@github.com",
-        "name": "Austen Stone",
-        "username": "austenstone"
-      },
-      "committer": {
-        "email": "austenstone@github.com",
-        "name": "Austen Stone",
-        "username": "austenstone"
-      },
-      "distinct": true,
-      "id": "2377440c45be94f2f5352950f14a669e78582b44",
-      "message": "Merge branch 'main' of https://github.com/austenstone/markdown-interpolation-action into main",
-      "timestamp": "2022-03-12T10:36:38-05:00",
-      "tree_id": "3ae2bdc869fd15f4d75fec1884c29a4348318eff",
-      "url": "https://github.com/austenstone/markdown-interpolation-action/commit/2377440c45be94f2f5352950f14a669e78582b44"
     },
-    "pusher": {
-      "email": "austenstone@github.com",
-      "name": "austenstone"
+    "issue": {
+      "active_lock_reason": null,
+      "assignee": null,
+      "assignees": [],
+      "author_association": "OWNER",
+      "body": "This is a test for Example 4.",
+      "closed_at": null,
+      "comments": 0,
+      "comments_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/issues/1/comments",
+      "created_at": "2022-03-12T15:41:33Z",
+      "events_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/issues/1/events",
+      "html_url": "https://github.com/austenstone/markdown-interpolation-action/issues/1",
+      "id": 1167320563,
+      "labels": [],
+      "labels_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/issues/1/labels{/name}",
+      "locked": false,
+      "milestone": null,
+      "node_id": "I_kwDOG-1FTc5Fk-Xz",
+      "number": 1,
+      "performed_via_github_app": null,
+      "reactions": {
+        "+1": 0,
+        "-1": 0,
+        "confused": 0,
+        "eyes": 0,
+        "heart": 0,
+        "hooray": 0,
+        "laugh": 0,
+        "rocket": 0,
+        "total_count": 0,
+        "url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/issues/1/reactions"
+      },
+      "repository_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action",
+      "state": "open",
+      "timeline_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/issues/1/timeline",
+      "title": "Example 4 Test",
+      "updated_at": "2022-03-12T15:43:15Z",
+      "url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/issues/1",
+      "user": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/22425467?v=4",
+        "events_url": "https://api.github.com/users/austenstone/events{/privacy}",
+        "followers_url": "https://api.github.com/users/austenstone/followers",
+        "following_url": "https://api.github.com/users/austenstone/following{/other_user}",
+        "gists_url": "https://api.github.com/users/austenstone/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/austenstone",
+        "id": 22425467,
+        "login": "austenstone",
+        "node_id": "MDQ6VXNlcjIyNDI1NDY3",
+        "organizations_url": "https://api.github.com/users/austenstone/orgs",
+        "received_events_url": "https://api.github.com/users/austenstone/received_events",
+        "repos_url": "https://api.github.com/users/austenstone/repos",
+        "site_admin": true,
+        "starred_url": "https://api.github.com/users/austenstone/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/austenstone/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/austenstone"
+      }
     },
-    "ref": "refs/heads/main",
     "repository": {
       "allow_forking": true,
       "archive_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/{archive_format}{/ref}",
@@ -244,7 +241,7 @@ Examine the event context of the last run.
       "compare_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/compare/{base}...{head}",
       "contents_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/contents/{+path}",
       "contributors_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/contributors",
-      "created_at": 1646952568,
+      "created_at": "2022-03-10T22:49:28Z",
       "default_branch": "main",
       "deployments_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/deployments",
       "description": "An action for text interpolation that lets you incorporate dynamic string values into your markdown files.",
@@ -278,18 +275,16 @@ Examine the event context of the last run.
       "language": "TypeScript",
       "languages_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/languages",
       "license": null,
-      "master_branch": "main",
       "merges_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/merges",
       "milestones_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/milestones{/number}",
       "mirror_url": null,
       "name": "markdown-interpolation-action",
       "node_id": "R_kgDOG-1FTQ",
       "notifications_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/notifications{?since,all,participating}",
-      "open_issues": 0,
-      "open_issues_count": 0,
+      "open_issues": 1,
+      "open_issues_count": 1,
       "owner": {
         "avatar_url": "https://avatars.githubusercontent.com/u/22425467?v=4",
-        "email": "austenstone@github.com",
         "events_url": "https://api.github.com/users/austenstone/events{/privacy}",
         "followers_url": "https://api.github.com/users/austenstone/followers",
         "following_url": "https://api.github.com/users/austenstone/following{/other_user}",
@@ -298,7 +293,6 @@ Examine the event context of the last run.
         "html_url": "https://github.com/austenstone",
         "id": 22425467,
         "login": "austenstone",
-        "name": "austenstone",
         "node_id": "MDQ6VXNlcjIyNDI1NDY3",
         "organizations_url": "https://api.github.com/users/austenstone/orgs",
         "received_events_url": "https://api.github.com/users/austenstone/received_events",
@@ -311,11 +305,10 @@ Examine the event context of the last run.
       },
       "private": false,
       "pulls_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/pulls{/number}",
-      "pushed_at": 1647099398,
+      "pushed_at": "2022-03-12T15:42:58Z",
       "releases_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/releases{/id}",
       "size": 575,
       "ssh_url": "git@github.com:austenstone/markdown-interpolation-action.git",
-      "stargazers": 0,
       "stargazers_count": 0,
       "stargazers_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/stargazers",
       "statuses_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/statuses/{sha}",
@@ -331,7 +324,7 @@ Examine the event context of the last run.
       ],
       "trees_url": "https://api.github.com/repos/austenstone/markdown-interpolation-action/git/trees{/sha}",
       "updated_at": "2022-03-11T02:38:06Z",
-      "url": "https://github.com/austenstone/markdown-interpolation-action",
+      "url": "https://api.github.com/repos/austenstone/markdown-interpolation-action",
       "visibility": "public",
       "watchers": 0,
       "watchers_count": 0
@@ -357,15 +350,15 @@ Examine the event context of the last run.
       "url": "https://api.github.com/users/austenstone"
     }
   },
-  "eventName": "push",
-  "sha": "2377440c45be94f2f5352950f14a669e78582b44",
+  "eventName": "issues",
+  "sha": "402711893c5e0b4dd174f2bfcc6bd1e57140abf5",
   "ref": "refs/heads/main",
   "workflow": "Example 4",
   "action": "values",
   "actor": "austenstone",
   "job": "run",
-  "runNumber": 3,
-  "runId": 1973671794,
+  "runNumber": 5,
+  "runId": 1973686357,
   "apiUrl": "https://api.github.com",
   "serverUrl": "https://github.com",
   "graphqlUrl": "https://api.github.com/graphql"
