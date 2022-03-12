@@ -39,7 +39,7 @@ jobs:
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
               AUTHOR: process.env.AUTHOR,
               MESSAGE: process.env.MESSAGE,
-            }
+            };
       - uses: austenstone/markdown-interpolation-action@master
         with:
           values: ${{ steps.values.outputs.result }}
@@ -63,6 +63,43 @@ This example is actually updating the code examples for both examples 🤯.
 
 #### [Example 2 Workflow](.github/workflows/example2.yml)
 <!--EXAMPLE2-->
+```yml
+name: Example 2
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/**.yml"
+
+jobs:
+  run:
+    name: Write EXAMPLE to README.md
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/github-script@v6
+        id: values
+        env:
+          AUTHOR: ${{ github.actor	}}
+          MESSAGE: ${{ github.event.inputs.message }}
+        with:
+          script: |
+            const fs = require('fs');
+            let example1 = fs.readFileSync('.github/workflows/example1.yml').toString();
+            let example2 = fs.readFileSync('.github/workflows/example2.yml').toString();
+            example1 = example1.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master');
+            example2 = example2.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master');
+            return {
+              EXAMPLE1: '\n```yml\n' + example1 + '\n```\n',
+              EXAMPLE2: '\n```yml\n' + example2 + '\n```\n'
+            };
+      - uses: ./
+        with:
+          values: ${{ steps.values.outputs.result }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+
+```
 <!--END EXAMPLE2-->
 
 ## Input Settings
