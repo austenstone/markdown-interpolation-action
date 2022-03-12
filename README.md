@@ -48,7 +48,6 @@ jobs:
 
 ```<!--END USAGE-->
 
-```
 ### Example 1 README
 ```md
 Last updated: <!--TIME-->3/12/2022, 1:51:44 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
