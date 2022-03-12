@@ -126,7 +126,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const examples = ['example1', 'example2', 'example3', 'example4'];
+            const examples = ['example1', 'example2', 'example3'];
             const values = {};
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
