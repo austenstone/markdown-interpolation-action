@@ -54,7 +54,7 @@ jobs:
 An example to manually update a message on the README.md file.
 
 #### [Example 2 Workflow](.github/workflows/example2.yml)
-<!--EXAMPLE3-->
+<!--EXAMPLE2-->
 ```yml
 name: Example 2
 on:
@@ -92,7 +92,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
 
 ```
-<!--END EXAMPLE3-->
+<!--END EXAMPLE2-->
 
 ### Example 2 README
 ```md
