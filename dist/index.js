@@ -53,21 +53,35 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const markdown_interpolation_1 = __nccwpck_require__(3);
 const run = () => __awaiter(void 0, void 0, void 0, function* () {
-    const valuesInput = core.getInput('values');
-    const filesRegex = core.getInput('files-regex');
-    const filesRegexFlags = core.getInput('files-regex-flags');
-    if (!valuesInput)
-        return core.setFailed('No input \'values\'');
-    let values;
+    const valuesOutput = {};
     try {
-        values = JSON.parse(valuesInput);
+        const values = core.getInput('values');
+        const filesRegex = core.getInput('files-regex');
+        const filesRegexFlags = core.getInput('files-regex-flags');
+        if (!values)
+            throw Error(`No input 'values'`);
+        const regex = new RegExp(filesRegex, filesRegexFlags);
+        const valuesRead = (0, markdown_interpolation_1.mdFileReadRegex)(regex);
+        if (valuesRead) {
+            for (const valueRead of valuesRead) {
+                valuesOutput[valueRead.key] = valueRead.value;
+            }
+        }
+        let valuesInput;
+        try {
+            valuesInput = JSON.parse(values);
+        }
+        catch (_a) {
+            throw Error(`Failed to parse JSON ${values}`);
+        }
+        core.info(`${regex.source} ${JSON.stringify(valuesInput, null, 2)}`);
+        (0, markdown_interpolation_1.mdFileWriteRegex)(regex, valuesInput);
     }
-    catch (_a) {
-        return core.error(`Failed to parse JSON ${valuesInput}`);
+    catch (error) {
+        core.setFailed(JSON.stringify(error));
     }
-    const regex = new RegExp(filesRegex, filesRegexFlags);
-    core.info(`${regex.source} ${JSON.stringify(values, null, 2)}`);
-    return (0, markdown_interpolation_1.markdownInterpolateWriteFileRegex)(regex, values);
+    core.setOutput('values', valuesOutput);
+    return valuesOutput;
 });
 exports["default"] = run;
 
@@ -1376,10 +1390,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.markdownInterpolateRead = exports.markdownInterpolateWriteFileRegex = exports.markdownInterpolateFileWrite = void 0;
+exports.mdFileRead = exports.mdFileReadRegex = exports.mdFileWriteRegex = exports.mdFileWrite = void 0;
 const fs = __importStar(__nccwpck_require__(147));
 const path_1 = __importDefault(__nccwpck_require__(17));
-const markdownInterpolateFileWrite = (fileName, values) => {
+const mdFileWrite = (fileName, values) => {
+    if (!values)
+        throw Error('Missing paramter \'values\' for markdownInterpolateFileWrite');
     let content = fs.readFileSync(fileName).toString();
     for (const [key, value] of Object.entries(values)) {
         const regex = new RegExp(`(?<=<!-- ?${key} ?-->)(.*?)(?=<!-- ?END ${key} ?-->)`, 'gs');
@@ -1387,15 +1403,24 @@ const markdownInterpolateFileWrite = (fileName, values) => {
     }
     fs.writeFileSync(fileName, content);
 };
-exports.markdownInterpolateFileWrite = markdownInterpolateFileWrite;
-const markdownInterpolateWriteFileRegex = (regex, values) => {
-    const files = fs.readdirSync('./')
+exports.mdFileWrite = mdFileWrite;
+const regexFiles = (regex) => {
+    return fs.readdirSync('./')
         .filter((file) => file.match(regex))
         .map((file) => path_1.default.resolve('./', file));
-    files.forEach((file) => (0, exports.markdownInterpolateFileWrite)(file, values));
 };
-exports.markdownInterpolateWriteFileRegex = markdownInterpolateWriteFileRegex;
-const markdownInterpolateRead = (fileName) => {
+const mdFileWriteRegex = (regex, values) => {
+    const files = regexFiles(regex);
+    files.forEach((file) => (0, exports.mdFileWrite)(file, values));
+};
+exports.mdFileWriteRegex = mdFileWriteRegex;
+const mdFileReadRegex = (regex) => {
+    const files = regexFiles(regex);
+    const results = [];
+    return files.reduce((results, file) => results.concat((0, exports.mdFileRead)(file)), results);
+};
+exports.mdFileReadRegex = mdFileReadRegex;
+const mdFileRead = (fileName) => {
     const results = [];
     const content = fs.readFileSync(fileName).toString();
     const regex = new RegExp(`(<!-- ?\\w+ ?-->)(.*?)(<!-- ?END \\w+ ?-->)`, 'gs');
@@ -1407,7 +1432,7 @@ const markdownInterpolateRead = (fileName) => {
     }
     return results;
 };
-exports.markdownInterpolateRead = markdownInterpolateRead;
+exports.mdFileRead = mdFileRead;
 
 
 /***/ }),
