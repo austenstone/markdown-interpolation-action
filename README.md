@@ -102,11 +102,16 @@ jobs:
 ```
 <!--END EXAMPLE2-->
 
-## Input Settings
-Various inputs are defined in [`action.yml`](action.yml):
+## Inputs
 
 | Name | Description | Default |
 | --- | - | - |
 | **values** | JSON values to interpolate in markdown. | N/A |
 | files-regex | File name match as regex. | README.md |
 | files-regex-flags | Regex flags for files-regex. | gi |
+
+## Outputs
+
+| Name | Description | Default |
+| --- | - | - |
+| **values** | JSON values read. (last value) | {} |
