@@ -9,7 +9,7 @@ See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolati
 ## EXAMPLE 1
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
-#### [Example 1 Workflow](.github/workflows/example1.yml)
+### [Example 1 Workflow](.github/workflows/example1.yml)
 
 <!--EXAMPLE1-->
 ```yml
@@ -53,7 +53,7 @@ jobs:
 
 An example to manually update a message on the README.md file.
 
-#### [Example 2 Workflow](.github/workflows/example2.yml)
+### [Example 2 Workflow](.github/workflows/example2.yml)
 <!--EXAMPLE2-->
 ```yml
 name: Example 2
@@ -105,7 +105,7 @@ jobs:
 This example is actually upating the README.md examples themselves 🤯
 These example `yml` scripts in the README are generated automatically when the files change.
 
-#### [Example 3 Workflow](.github/workflows/example3.yml)
+### [Example 3 Workflow](.github/workflows/example3.yml)
 <!--EXAMPLE3-->
 ```yml
 name: Example 3
