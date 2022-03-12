@@ -4,12 +4,12 @@ This action interpolates markdown with variables.
 
 See [Markdown Interpolation](https://github.com/austenstone/markdown-interpolation#writing) to understand how to use the interpolation syntax.
 
-## Usage
+## EXAMPLE
 Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
-#### [Example 1 Workflow](https://github.com/austenstone/markdown-interpolation-action/blob/main/.github/workflows/usage.yml)
+#### [Example 1 Workflow](.github/workflows/example1.yml)
 
-<!--USAGE-->
+<!--EXAMPLE1-->
 ```yml
 name: Example 1
 on:
@@ -44,9 +44,8 @@ jobs:
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
-
 ```
-<!--END USAGE-->
+<!--END EXAMPLE1-->
 
 ### Example 1 README
 ```md
@@ -57,6 +56,12 @@ Last updated: <!--TIME-->3/12/2022, 2:10:51 AM<!--END TIME--> (EST) by @<!--AUTH
 Last updated: <!--TIME-->3/12/2022, 2:10:51 AM<!--END TIME--> (EST) by @<!--AUTHOR-->austenstone<!--END AUTHOR-->
 
 ### <!--MESSAGE--><!--END MESSAGE-->
+
+### Example 2
+
+#### [Example 2 Workflow](.github/workflows/example2.yml)
+<!--EXAMPLE2-->
+<!--EXAMPLE2-->
 
 ## Input Settings
 Various inputs are defined in [`action.yml`](action.yml):

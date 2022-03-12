@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       message:
-        description: 'A message to show in the README.md file'     
+        description: "A message to show in the README.md file"
         required: true
-        default: 'Hello World!'
+        default: "Hello World!"
   schedule:
-    - cron: '* * * * *'
+    - cron: "* * * * *"
 
 jobs:
   run:
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/github-script@v6
         id: values
         env:
-          AUTHOR: ${{ github.actor	}}
+          AUTHOR: ${{ github.actor }}
           MESSAGE: ${{ github.event.inputs.message }}
         with:
           script: |
