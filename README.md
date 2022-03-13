@@ -126,6 +126,7 @@ jobs:
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
               content = content.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master');
+              
               values[example.toUpperCase()] = '\n```yml\n' + content + '\n```\n';
             });
             return values;
@@ -133,6 +134,7 @@ jobs:
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
+
 ```
 <!--END EXAMPLE3-->
 
