@@ -21,7 +21,7 @@ jobs:
     name: Write Time to README.md
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
@@ -66,7 +66,7 @@ jobs:
     name: Write Time to README.md
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         env:
@@ -115,7 +115,7 @@ jobs:
     name: Write EXAMPLE to README.md
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
@@ -159,7 +159,7 @@ jobs:
     name: Write EXAMPLE to README.md
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
