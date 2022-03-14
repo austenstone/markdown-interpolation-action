@@ -17,8 +17,7 @@ on:
     - cron: "* * * * *"
 
 jobs:
-  run:
-    name: Write Time to README.md
+  write-time:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -62,8 +61,7 @@ on:
         default: "Hello World!"
 
 jobs:
-  run:
-    name: Write Time to README.md
+  write-message:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -111,8 +109,7 @@ on:
       - ".github/workflows/**.yml"
 
 jobs:
-  run:
-    name: Write EXAMPLE to README.md
+  write-examples:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -122,14 +119,14 @@ jobs:
           script: |
             const fs = require('fs');
             const examples = ['example1', 'example2', 'example3', 'example4'];
-            const values = {};
+            const exampleContent = {};
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
               content = content.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master');
-              
-              values[example.toUpperCase()] = '\n```yml\n' + content + '\n```\n';
+              content = content.replace(/.*- uses: actions\/checkout@v2\n/g, '')
+              exampleContent[example.toUpperCase()] = '\n```yml\n' + content + '\n```\n';
             });
-            return values;
+            return exampleContent;
       - uses: ./
         with:
           values: ${{ steps.values.outputs.result }}
@@ -157,8 +154,7 @@ on:
       - edited
 
 jobs:
-  run:
-    name: Write EXAMPLE to README.md
+  write-last-issue:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
