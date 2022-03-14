@@ -25,7 +25,7 @@ jobs:
         with:
           script: |
             return {
-              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }),
+              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }),
             };
       - uses: austenstone/markdown-interpolation-action@master
         with:
