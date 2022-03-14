@@ -20,7 +20,6 @@ jobs:
   write-time:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
@@ -64,7 +63,6 @@ jobs:
   write-message:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         env:
@@ -112,7 +110,6 @@ jobs:
   write-examples:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
@@ -123,7 +120,7 @@ jobs:
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
               content = content.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master');
-              content = content.replace(/.*- uses: actions\/checkout@v2\n/g, '')
+              content = content.replace(/.*- uses: actions\/checkout@v[0-9]+\n/g, '')
               exampleContent[example.toUpperCase()] = '\n```yml\n' + content + '\n```\n';
             });
             return exampleContent;
@@ -157,7 +154,6 @@ jobs:
   write-last-issue:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
