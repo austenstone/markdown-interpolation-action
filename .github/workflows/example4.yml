@@ -6,8 +6,7 @@ on:
       - edited
 
 jobs:
-  run:
-    name: Write EXAMPLE to README.md
+  write-last-issue:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

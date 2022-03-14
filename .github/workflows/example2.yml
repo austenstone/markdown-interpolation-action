@@ -8,8 +8,7 @@ on:
         default: "Hello World!"
 
 jobs:
-  run:
-    name: Write Time to README.md
+  write-message:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

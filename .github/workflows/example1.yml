@@ -4,8 +4,7 @@ on:
     - cron: "* * * * *"
 
 jobs:
-  run:
-    name: Write Time to README.md
+  write-time:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
