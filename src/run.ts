@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import { mdFileWriteRegex, mdFileReadRegex } from 'markdown-interpolation';
+import { mdIFileWrite, mdFileReadRegex } from 'markdown-interpolation';
 
 const run = async (): Promise<{ key: string; value: string; } | {}> => {
   const valuesOutput: { key: string; value: string; } | {} = {};
@@ -27,7 +27,7 @@ const run = async (): Promise<{ key: string; value: string; } | {}> => {
     core.startGroup('Input');
     core.info(JSON.stringify(valuesInput, null, 2));
     core.endGroup();
-    mdFileWriteRegex(regex, valuesInput);
+    mdIFileWrite(regex, valuesInput);
   } catch (error) {
     core.setFailed(JSON.stringify(error));
   }
