@@ -1,0 +1,27 @@
+name: Example 4
+on:
+  issues:
+    types:
+      - opened
+      - edited
+
+jobs:
+  write-last-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        id: values
+        with:
+          script: |
+            return {
+              TITLE: context.payload.issue.title,
+              BODY: context.payload.issue.body,
+              NUMBER: '#' + context.payload.issue.number,
+            };
+      - uses: ./
+        with:
+          values: ${{ steps.values.outputs.result }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>

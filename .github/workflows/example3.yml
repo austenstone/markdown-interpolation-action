@@ -1,0 +1,33 @@
+name: Example 3
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/**.yml"
+
+jobs:
+  write-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        id: values
+        with:
+          script: |
+            const fs = require('fs');
+            const examples = ['example1', 'example2', 'example3', 'example4'];
+            const exampleContent = {};
+            examples.forEach((example) => {
+              let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
+              content = content.replace('uses: ./', 'uses: austenstone/markdown-interpolation-action@master');
+              content = content.replace(/.*- uses: actions\/checkout@v[0-9]+\n/g, '')
+              exampleContent[example.toUpperCase()] = '\n```yml\n' + content + '\n```\n';
+            });
+            return exampleContent;
+      - uses: ./
+        with:
+          values: ${{ steps.values.outputs.result }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>

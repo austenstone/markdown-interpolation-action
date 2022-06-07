@@ -1,0 +1,31 @@
+name: Example 2
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "A message to show in the README.md file"
+        required: true
+        default: "Hello World!"
+
+jobs:
+  write-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        id: values
+        env:
+          MESSAGE: ${{ github.event.inputs.message }}
+          AUTHOR: ${{ github.actor }}
+        with:
+          script: |
+            return {
+              MESSAGE: process.env.MESSAGE,
+              AUTHOR: process.env.AUTHOR,
+            };
+      - uses: ./
+        with:
+          values: ${{ steps.values.outputs.result }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>

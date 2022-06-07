@@ -1,0 +1,23 @@
+name: Example 1
+on:
+  schedule:
+    - cron: "* * * * *"
+
+jobs:
+  write-time:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        id: values
+        with:
+          script: |
+            return {
+              TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }),
+            };
+      - uses: ./
+        with:
+          values: ${{ steps.values.outputs.result }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
