@@ -1,6 +1,6 @@
 name: Markdown Interpolation Action
 author: Austen Stone
-description: Interpolate markdown files with variables
+description: Find and replace or interpolate markdown files with dynamic content. Markdown Variables.
 branding:
   icon: "file-text"
   color: "orange"
