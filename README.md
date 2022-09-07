@@ -13,6 +13,7 @@ Create a workflow (eg: `.github/workflows/run.yml`). See [Creating a Workflow fi
 ```yml
 name: Example 1
 on:
+  workflow_dispatch:
   schedule:
     - cron: "* * * * *"
 
@@ -27,12 +28,19 @@ jobs:
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }),
             };
+      - run: |
+          curl -L https://github.com/lwe/whatthecommit/raw/master/whatthecommit >/usr/local/bin/whatthecommit
+          chmod 0755 /usr/local/bin/whatthecommit
+          echo "::set-output name=whatthecommit::$(whatthecommit)"
+        id: whatthecommit
       - uses: austenstone/markdown-interpolation-action@master
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          commit_message: ${{ steps.whatthecommit.outputs.commit_message }}
+
 ```
 <!--END EXAMPLE1-->
 
