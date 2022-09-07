@@ -16,6 +16,7 @@ jobs:
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }),
             };
+      - uses: ruby/setup-ruby@v1
       - run: |
           curl -L https://github.com/lwe/whatthecommit/raw/master/whatthecommit >/usr/local/bin/whatthecommit
           chmod 0755 /usr/local/bin/whatthecommit
