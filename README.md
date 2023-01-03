@@ -38,11 +38,11 @@ jobs:
 
 ### Example 1 README
 ```md
-##### Last Updated: <!--TIME-->1/2/2023, 11:58:33 PM EST<!--END TIME-->
+##### Last Updated: <!--TIME-->1/3/2023, 12:07:23 AM EST<!--END TIME-->
 ```
 
 ### Example 1 Result (LIVE)
-##### Last Updated: <!--TIME-->1/2/2023, 11:58:33 PM EST<!--END TIME-->
+##### Last Updated: <!--TIME-->1/3/2023, 12:07:23 AM EST<!--END TIME-->
 
 ## EXAMPLE 2
 
