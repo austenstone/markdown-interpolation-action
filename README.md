@@ -26,7 +26,7 @@ jobs:
             return {
               TIME: new Date().toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }),
             };
-      - uses: austenstone/markdown-interpolation-action@master
+      - uses: austenstone/markdown-interpolation-action@main
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -75,7 +75,7 @@ jobs:
               MESSAGE: process.env.MESSAGE,
               AUTHOR: process.env.AUTHOR,
             };
-      - uses: austenstone/markdown-interpolation-action@master
+      - uses: austenstone/markdown-interpolation-action@main
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -122,7 +122,7 @@ jobs:
             const exampleContent = {};
             examples.forEach((example) => {
               let content = fs.readFileSync(`.github/workflows/${example}.yml`).toString();
-              content = content.replace('uses: austenstone/markdown-interpolation-action@master', 'uses: austenstone/markdown-interpolation-action@master');
+              content = content.replace('uses: austenstone/markdown-interpolation-action@main', 'uses: austenstone/markdown-interpolation-action@main');
               content = content.replace(/.*- uses: actions\/checkout@v[0-9]+\n/g, '')
               exampleContent[example.toUpperCase()] = '\n```yml\n' + content + '\n```\n';
             });
@@ -168,7 +168,7 @@ jobs:
               BODY: context.payload.issue.body,
               NUMBER: '#' + context.payload.issue.number,
             };
-      - uses: austenstone/markdown-interpolation-action@master
+      - uses: austenstone/markdown-interpolation-action@main
         with:
           values: ${{ steps.values.outputs.result }}
       - uses: stefanzweifel/git-auto-commit-action@v4
