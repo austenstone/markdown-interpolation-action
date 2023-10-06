@@ -19,6 +19,7 @@ jobs:
   write-time:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
@@ -64,6 +65,7 @@ jobs:
   write-message:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         env:
@@ -113,6 +115,7 @@ jobs:
   write-examples:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
@@ -159,6 +162,7 @@ jobs:
   write-last-issue:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         id: values
         with:
